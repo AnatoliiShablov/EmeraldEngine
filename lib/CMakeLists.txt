@@ -6,11 +6,8 @@ find_package(SDL2 REQUIRED)
 
 set(EE_WORLD ${PROJECT_NAME}_world)
 add_library(${EE_WORLD} include/world.hpp src/world.cpp)
-add_library(EE::World ALIAS ${EE_WORLD})
 
-target_include_directories(${EE_WORLD} PRIVATE include/)
-
-target_include_directories(${EE_WORLD} PRIVATE ${SDL2_INCLUDE_DIRS})
+target_include_directories(${EE_WORLD} PRIVATE include/ ${SDL2_INCLUDE_DIRS})
 target_link_libraries(${EE_WORLD} ${SDL2_LIBRARIES})
 
 set_target_properties(${EE_WORLD} PROPERTIES
@@ -33,6 +30,6 @@ set_target_properties(${EE_MAIN} PROPERTIES
 )
 
 
-set(EE_LIBRARIES ${EE_MAIN} ${EE_WORLD})
-set(EE_INCLUDE_DIRS include/)
-set(EE_FOUND TRUE)
+set(EE_LIBRARIES EE PARENT_SCOPE)
+set(EE_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include/ PARENT_SCOPE)
+set(EE_FOUND TRUE PARENT_SCOPE)

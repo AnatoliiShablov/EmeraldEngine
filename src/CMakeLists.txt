@@ -5,7 +5,7 @@ project(Game LANGUAGES CXX)
 find_library(EE REQUIRED)
 
 if(NOT ${EE_FOUND})
-    message(FATAL_ERROR "NO Emerald engine")
+    message(FATAL_ERROR "No Emerald engine")
 endif()
 
 add_executable(${PROJECT_NAME}_test test.cpp)
