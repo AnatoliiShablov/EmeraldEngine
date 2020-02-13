@@ -7,7 +7,7 @@ find_package(SDL2 REQUIRED)
 set(EE_WORLD ${PROJECT_NAME}_world)
 add_library(${EE_WORLD} include/world.hpp src/world.cpp)
 
-target_include_directories(${EE_WORLD} PUBLIC include/ ${SDL2_INCLUDE_DIRS})
+target_include_directories(${EE_WORLD} PUBLIC include/ PRIVATE ${SDL2_INCLUDE_DIRS})
 target_link_libraries(${EE_WORLD} ${SDL2_LIBRARIES})
 
 set_target_properties(${EE_WORLD} PROPERTIES
