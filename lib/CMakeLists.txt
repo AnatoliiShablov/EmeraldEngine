@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 
 project(EmeraldEngine LANGUAGES CXX)
 
-find_package(SDL2 QUIET) # у меня нет, поэтому поменял
+find_package(SDL2 REQUIRED)
 
 set(EE_WORLD ${PROJECT_NAME}_world)
 add_library(${EE_WORLD} include/world.hpp src/world.cpp)
