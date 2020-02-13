@@ -10,11 +10,4 @@ endif()
 
 add_executable(${PROJECT_NAME}_test test.cpp)
 
-target_link_libraries(${PROJECT_NAME}_test ${EE_LIBRARIES})
-target_include_directories(${PROJECT_NAME}_test PRIVATE ${EE_INCLUDE_DIRS})
-
-set_target_properties(${PROJECT_NAME}_test PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED YES
-    CXX_EXTENSIONS NO
-)
+target_link_libraries(${PROJECT_NAME}_test EE)
